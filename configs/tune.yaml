@@ -6,6 +6,7 @@ defaults:
   - _self_
   - paths: default
   - model: sample
+  - evaluation: default
 
 
 # task name, determines output directory path

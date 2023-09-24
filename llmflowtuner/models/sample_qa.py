@@ -27,7 +27,7 @@ class SampleQA:
         embedding: Embeddings,
         text_splitter: TextSplitter,
         llm_for_answer: BaseLanguageModel,
-    ):
+    ) -> None:
         """
         Input the elements necessary for LLM flow
         The arguments here can be searched for hyperparameters in the future.
