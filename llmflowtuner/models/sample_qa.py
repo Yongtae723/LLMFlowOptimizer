@@ -1,10 +1,10 @@
 from typing import Any
-from langchain.indexes.vectorstore import VectorstoreIndexCreator
 
-from langchain.text_splitter import TextSplitter
-from langchain.schema.embeddings import Embeddings
 from langchain.document_loaders import TextLoader
+from langchain.indexes.vectorstore import VectorstoreIndexCreator
+from langchain.schema.embeddings import Embeddings
 from langchain.schema.language_model import BaseLanguageModel
+from langchain.text_splitter import TextSplitter
 
 
 class SampleQA:
@@ -42,4 +42,6 @@ class SampleQA:
         self.llm_for_answer = llm_for_answer
 
     def __call__(self, input: str) -> Any:
-        return self.index.query_with_sources(input, llm=self.llm_for_answer, return_source_documents=True)
+        return self.index.query_with_sources(
+            input, llm=self.llm_for_answer, return_source_documents=True
+        )

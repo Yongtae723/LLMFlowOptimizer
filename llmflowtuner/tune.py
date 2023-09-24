@@ -1,12 +1,13 @@
+import logging
 from typing import Any, Dict, List, Optional, Tuple
 
 import hydra
-from omegaconf import DictConfig
 import rootutils
+from omegaconf import DictConfig
 
-from llmflowtuner.models.components.base import BaseChainModel, BaseEvaluationModel
+from llmflowtuner.models.components.base import (BaseChainModel,
+                                                 BaseEvaluationModel)
 
-import logging
 log = logging.getLogger(__name__)
 
 
@@ -20,13 +21,14 @@ def main(cfg: DictConfig) -> Optional[float]:
     """
 
     log.info(f"Instantiating model <{cfg.model._target_}>")
-    model:BaseChainModel  = hydra.utils.instantiate(cfg.model)
-    evaluator:BaseEvaluationModel  = hydra.utils.instantiate(cfg.evaluation)
+    model: BaseChainModel = hydra.utils.instantiate(cfg.model)
+    evaluator: BaseEvaluationModel = hydra.utils.instantiate(cfg.evaluation)
 
     log.info(f"Evaluating <{cfg.model._target_}>")
     metric_value = evaluator.evaluate(model)
-    
+
     return metric_value
+
 
 if __name__ == "__main__":
     main()

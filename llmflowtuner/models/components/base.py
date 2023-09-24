@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
 from typing import Any
 
+
 class BaseChainModel(ABC):
     """
     Define the flow of the model to be adjusted.
@@ -14,6 +15,7 @@ class BaseChainModel(ABC):
     # Define when this model is called.
     ```
     """
+
     def __init__(self, **kwargs) -> None:
         ...
 
@@ -35,8 +37,9 @@ class BaseEvaluationModel(ABC):
     Optimizer maximize/minimize the output of this function.
     ```
     """
+
     def __init__(self, **kwargs) -> None:
         ...
 
-    def evaluate(self, model:BaseChainModel, **kwargs) -> Any:
+    def evaluate(self, model: BaseChainModel, **kwargs) -> Any:
         ...
