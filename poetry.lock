@@ -3893,6 +3893,21 @@ files = [
 ]
 
 [[package]]
+name = "rootutils"
+version = "1.0.7"
+description = "Simple package for easy project root setup"
+category = "main"
+optional = false
+python-versions = ">=3.7.0"
+files = [
+    {file = "rootutils-1.0.7-py3-none-any.whl", hash = "sha256:89f1994e6d0f499db7aca7f90edc146801cb33c8565a15c7cee4a4e4fc8c6eef"},
+    {file = "rootutils-1.0.7.tar.gz", hash = "sha256:7e2444cdbf4a73a907875fb109d55a38b4ee21313cef305bf59fadbf540440bc"},
+]
+
+[package.dependencies]
+python-dotenv = ">=0.20.0"
+
+[[package]]
 name = "rpds-py"
 version = "0.10.3"
 description = "Python bindings to Rust's persistent data structures (rpds)"
@@ -5379,4 +5394,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "8b511a6689ff761396a96fe43dc20c48acfc902ede9964f1c5bbbf7b6886b7b5"
+content-hash = "8efba4ca36dae6165159cd5ec7a2e00f2990bac3d6c8840f799b709e065ce470"
