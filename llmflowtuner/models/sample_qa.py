@@ -30,7 +30,9 @@ class SampleQA:
     ):
         """
         Input the elements necessary for LLM flow
-        The arguments here can be searched for hyperparameters in the future
+        The arguments here can be searched for hyperparameters in the future.
+
+        the arguments are defined by `configs/model/sample.yaml`
         """
         text_loader = TextLoader(data_path)
         self.index = VectorstoreIndexCreator(
