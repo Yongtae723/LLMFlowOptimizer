@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "llmflowtuner"
+version = "0.1.0"
+description = ""
+authors = ["Yongtae <yong723.enjoy.everything@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+langchain = "^0.0.300"
+openai = "^0.28.0"
+tiktoken = "^0.5.1"
+optuna = "^3.3.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
