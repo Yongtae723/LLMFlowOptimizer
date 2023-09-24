@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "llmflowtuner"
+name = "llmflowoptimizer"
 version = "0.1.0"
 description = ""
 authors = ["Yongtae <yong723.enjoy.everything@gmail.com>"]

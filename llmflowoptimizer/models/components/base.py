@@ -26,7 +26,7 @@ class BaseChainModel(ABC):
 class BaseEvaluationModel(ABC):
     """
     Define the evaluation system.
-    LLMFlowTuner optimizes the hyperparameters of the model based on the output of this evaluation system.
+    llmflowoptimizer optimizes the hyperparameters of the model based on the output of this evaluation system.
 
     ```python
     def __init__(self):
