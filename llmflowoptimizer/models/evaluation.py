@@ -7,7 +7,7 @@ from ragas.metrics import (answer_relevancy, context_recall, context_relevancy,
 from ragas.metrics.critique import harmfulness
 
 from llmflowoptimizer.models.components.base import (BaseChainModel,
-                                                 BaseEvaluationModel)
+                                                     BaseEvaluationModel)
 
 
 class Evaluation(BaseEvaluationModel):

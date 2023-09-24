@@ -6,7 +6,7 @@ import rootutils
 from omegaconf import DictConfig
 
 from llmflowoptimizer.models.components.base import (BaseChainModel,
-                                                 BaseEvaluationModel)
+                                                     BaseEvaluationModel)
 
 log = logging.getLogger(__name__)
 
