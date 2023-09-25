@@ -1,0 +1,3 @@
+_target_: langchain.text_splitter.RecursiveCharacterTextSplitter
+chunk_size: 500
+chunk_overlap: 50
