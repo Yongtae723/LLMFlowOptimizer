@@ -88,6 +88,9 @@ poetry run python llmflowoptimizer/tune.py experiment=example
 ## Hyperparameter search
 WIP
 
+## managing experimental results
+WIP
+maybe use langflow?
 
 # TODO
 - [ ] Hyperparameter search by optuna
