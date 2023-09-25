@@ -5,8 +5,7 @@ import hydra
 import rootutils
 from omegaconf import DictConfig
 from pprint import pprint
-from llmflowoptimizer.models.components.base import (BaseChainModel,
-                                                     BaseEvaluationModel)
+from llmflowoptimizer.models.components.base import BaseChainModel, BaseEvaluationModel
 
 log = logging.getLogger(__name__)
 
