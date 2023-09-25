@@ -3,3 +3,4 @@ tune-with-debug:
 
 fix-lint:
 	black .
+	isort .

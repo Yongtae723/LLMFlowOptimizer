@@ -1,0 +1,3 @@
+_target_: langchain.chat_models.ChatOpenAI
+model_name: gpt-3.5-turbo
+temperature: 0

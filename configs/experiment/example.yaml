@@ -1,0 +1,11 @@
+# @package _global_
+
+# to execute this experiment run:
+# python train.py experiment=example
+
+defaults:
+  - override /model/llm_for_answer: OpenAI
+
+model.text_splitter.chunk_size: 1000
+task_name: "experiment"
+target_metric: answer_relevancy

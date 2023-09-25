@@ -4,9 +4,9 @@ from typing import Any, Dict, List, Optional, Tuple
 import hydra
 import rootutils
 from omegaconf import DictConfig
-
+from pprint import pprint
 from llmflowoptimizer.models.components.base import (BaseChainModel,
-                                                 BaseEvaluationModel)
+                                                     BaseEvaluationModel)
 
 log = logging.getLogger(__name__)
 
@@ -19,7 +19,7 @@ def main(cfg: DictConfig) -> Optional[float]:
     """
     This is the main entry point of the tune script.
     """
-
+    pprint(cfg)
     log.info(f"Instantiating model <{cfg.model._target_}>")
     model: BaseChainModel = hydra.utils.instantiate(cfg.model)
     evaluator: BaseEvaluationModel = hydra.utils.instantiate(cfg.evaluation)

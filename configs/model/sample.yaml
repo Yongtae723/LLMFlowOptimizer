@@ -1,17 +1,12 @@
+
+# specify here default configuration
+# order of defaults determines the order in which configs override each other
+defaults:
+  - _self_
+  - embedding: OpenAI
+  - text_splitter: RecursiveCharacter
+  - llm_for_answer: ChatOpenAI
+
 _target_: llmflowoptimizer.models.sample_qa.SampleQA # what we defined on llmflowoptimizer/models/sample_qa.py
 
 data_path: ${paths.reference_data_dir}/nyc_wikipedia.txt
-
-embedding:
-  _target_: langchain.embeddings.OpenAIEmbeddings
-
-text_splitter:
-  _target_: langchain.text_splitter.RecursiveCharacterTextSplitter
-  chunk_size: 500
-  chunk_overlap: 50
-
-
-llm_for_answer:
-  _target_: langchain.chat_models.ChatOpenAI
-  model_name: gpt-3.5-turbo
-  temperature: 0

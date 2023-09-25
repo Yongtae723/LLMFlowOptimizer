@@ -7,7 +7,8 @@ defaults:
   - paths: default
   - model: sample
   - evaluation: default
-
+  
+  - experiment: null
 
 # task name, determines output directory path
 task_name: "train"
