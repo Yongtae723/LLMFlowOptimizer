@@ -5,8 +5,7 @@ import hydra
 import rootutils
 from omegaconf import DictConfig
 from pprint import pprint
-from llmflowoptimizer.models.components.base import (BaseChainModel,
-                                                     BaseEvaluationModel)
+from llmflowoptimizer.models.components.base import BaseChainModel, BaseEvaluationModel
 
 log = logging.getLogger(__name__)
 
@@ -19,7 +18,6 @@ def main(cfg: DictConfig) -> Optional[float]:
     """
     This is the main entry point of the tune script.
     """
-    pprint(cfg)
     log.info(f"Instantiating model <{cfg.model._target_}>")
     model: BaseChainModel = hydra.utils.instantiate(cfg.model)
 
@@ -28,7 +26,11 @@ def main(cfg: DictConfig) -> Optional[float]:
         log.info(f"Evaluating <{cfg.model._target_}>")
         metric_value = evaluator.evaluate(model)
 
+        print("your score is ", metric_value)
         return metric_value
+    else:
+        print("your model conditions are ")
+        pprint(cfg.model)
 
 
 if __name__ == "__main__":
