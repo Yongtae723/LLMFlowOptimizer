@@ -30,10 +30,12 @@ class SampleQA:
     ) -> None:
         """
         Input the elements necessary for LLM flow
-        The arguments here can be searched for hyperparameters in the future.
+        The arguments here will be used as a hyperparameters and optimized.
 
         the arguments are defined by `configs/model/sample.yaml`
         """
+        self.embedding = embedding
+        self.text_splitter = text_splitter
         text_loader = TextLoader(data_path)
         self.index = VectorstoreIndexCreator(
             embedding=embedding, text_splitter=text_splitter
