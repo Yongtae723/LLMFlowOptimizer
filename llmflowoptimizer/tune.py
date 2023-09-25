@@ -22,12 +22,13 @@ def main(cfg: DictConfig) -> Optional[float]:
     pprint(cfg)
     log.info(f"Instantiating model <{cfg.model._target_}>")
     model: BaseChainModel = hydra.utils.instantiate(cfg.model)
-    evaluator: BaseEvaluationModel = hydra.utils.instantiate(cfg.evaluation)
 
-    log.info(f"Evaluating <{cfg.model._target_}>")
-    metric_value = evaluator.evaluate(model)
+    if not cfg.skip_eval:
+        evaluator: BaseEvaluationModel = hydra.utils.instantiate(cfg.evaluation)
+        log.info(f"Evaluating <{cfg.model._target_}>")
+        metric_value = evaluator.evaluate(model)
 
-    return metric_value
+        return metric_value
 
 
 if __name__ == "__main__":
