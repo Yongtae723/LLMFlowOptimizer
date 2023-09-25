@@ -1,3 +1,3 @@
-_target_: llmflowtuner.models.evaluation.Evaluation
+_target_: llmflowoptimizer.models.evaluation.Evaluation
 eval_data_path: ${paths.evaluation_data_dir}/NY_eval_data.json
 target_metric: ragas_score

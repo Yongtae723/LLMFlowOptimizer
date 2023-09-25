@@ -6,14 +6,14 @@ from ragas.metrics import (answer_relevancy, context_recall, context_relevancy,
                            faithfulness)
 from ragas.metrics.critique import harmfulness
 
-from llmflowtuner.models.components.base import (BaseChainModel,
+from llmflowoptimizer.models.components.base import (BaseChainModel,
                                                  BaseEvaluationModel)
 
 
 class Evaluation(BaseEvaluationModel):
     """
     Define the evaluation system.
-    LLMFlowTuner optimizes the hyperparameters of the model based on the output of this evaluation system.
+    llmflowoptimizer optimizes the hyperparameters of the model based on the output of this evaluation system.
 
     ```python
     def __init__(self):

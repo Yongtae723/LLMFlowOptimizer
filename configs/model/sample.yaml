@@ -1,4 +1,4 @@
-_target_: llmflowtuner.models.sample_qa.SampleQA # what we defined on llmflowtuner/models/sample_qa.py
+_target_: llmflowoptimizer.models.sample_qa.SampleQA # what we defined on llmflowoptimizer/models/sample_qa.py
 
 data_path: ${paths.reference_data_dir}/nyc_wikipedia.txt
 
