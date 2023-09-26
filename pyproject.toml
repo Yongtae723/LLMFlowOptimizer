@@ -6,7 +6,7 @@ authors = ["Yongtae <yong723.enjoy.everything@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.9"
 langchain = "^0.0.300"
 openai = "^0.28.0"
 tiktoken = "^0.5.1"
@@ -16,6 +16,7 @@ chromadb = "^0.4.12"
 black = "^23.9.1"
 rootutils = "^1.0.7"
 optuna = "^3.3.0"
+rich = "^13.5.3"
 
 
 [tool.poetry.group.dev.dependencies]
