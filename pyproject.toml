@@ -17,6 +17,7 @@ black = "^23.9.1"
 rootutils = "^1.0.7"
 optuna = "^3.3.0"
 rich = "^13.5.3"
+pre-commit = "^3.4.0"
 
 
 [tool.poetry.group.dev.dependencies]

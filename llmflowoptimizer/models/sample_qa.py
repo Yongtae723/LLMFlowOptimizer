@@ -8,9 +8,7 @@ from langchain.text_splitter import TextSplitter
 
 
 class SampleQA:
-    """
-    Define the flow of the model to be adjusted.
-
+    """Define the flow of the model to be adjusted.
 
     ```python
     def __init__(self):
@@ -28,9 +26,8 @@ class SampleQA:
         text_splitter: TextSplitter,
         llm_for_answer: BaseLanguageModel,
     ) -> None:
-        """
-        Input the elements necessary for LLM flow
-        The arguments here will be used as a hyperparameters and optimized.
+        """Input the elements necessary for LLM flow The arguments here will be used as a
+        hyperparameters and optimized.
 
         the arguments are defined by `configs/model/sample.yaml`
         """

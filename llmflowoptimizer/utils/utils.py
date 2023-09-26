@@ -1,3 +1,4 @@
+import logging
 from pathlib import Path
 from typing import Sequence
 
@@ -5,10 +6,8 @@ import rich
 import rich.syntax
 import rich.tree
 from omegaconf import DictConfig, OmegaConf
-import logging
 
 log = logging.getLogger(__name__)
-
 
 
 def print_config_tree(

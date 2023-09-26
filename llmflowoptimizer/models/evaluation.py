@@ -14,9 +14,8 @@ from llmflowoptimizer.models.components.base import BaseChainModel, BaseEvaluati
 
 
 class Evaluation(BaseEvaluationModel):
-    """
-    Define the evaluation system.
-    llmflowoptimizer optimizes the hyperparameters of the model based on the output of this evaluation system.
+    """Define the evaluation system. llmflowoptimizer optimizes the hyperparameters of the model
+    based on the output of this evaluation system.
 
     ```python
     def __init__(self):
@@ -54,8 +53,7 @@ class Evaluation(BaseEvaluationModel):
             result_dict["answer"].append(answer["answer"])
             result_dict["ground_truths"].append([data["ground_truth"]])
             contexts = [
-                source_document.page_content
-                for source_document in answer["source_documents"]
+                source_document.page_content for source_document in answer["source_documents"]
             ]
             result_dict["contexts"].append(contexts)
         results = Dataset.from_dict(result_dict)

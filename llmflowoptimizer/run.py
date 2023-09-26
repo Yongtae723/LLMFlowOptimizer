@@ -1,10 +1,11 @@
 import logging
+from pprint import pprint
 from typing import Any, Dict, List, Optional, Tuple
 
 import hydra
 import rootutils
 from omegaconf import DictConfig
-from pprint import pprint
+
 from llmflowoptimizer.models.components.base import BaseChainModel, BaseEvaluationModel
 from llmflowoptimizer.utils.utils import print_config_tree
 
@@ -16,9 +17,7 @@ rootutils.setup_root(__file__, indicator=".project-root", pythonpath=True)
 
 @hydra.main(version_base="1.3", config_path="../configs", config_name="run.yaml")
 def main(cfg: DictConfig) -> Optional[float]:
-    """
-    This is the main entry point of the tune script.
-    """
+    """This is the main entry point of the tune script."""
     log.info(f"Instantiating model <{cfg.model._target_}>")
     model: BaseChainModel = hydra.utils.instantiate(cfg.model)
 
@@ -31,7 +30,6 @@ def main(cfg: DictConfig) -> Optional[float]:
         metric_value = evaluator.evaluate(model)
         log.info(f"Score is  {metric_value}")
         return metric_value
-
 
 
 if __name__ == "__main__":

@@ -3,9 +3,7 @@ from typing import Any
 
 
 class BaseChainModel(ABC):
-    """
-    Define the flow of the model to be adjusted.
-
+    """Define the flow of the model to be adjusted.
 
     ```python
     def __init__(self):
@@ -20,13 +18,13 @@ class BaseChainModel(ABC):
         ...
 
     def __call__(self, input: str) -> Any:
+        """You can define when this class is called."""
         ...
 
 
 class BaseEvaluationModel(ABC):
-    """
-    Define the evaluation system.
-    llmflowoptimizer optimizes the hyperparameters of the model based on the output of this evaluation system.
+    """Define the evaluation system. llmflowoptimizer optimizes the hyperparameters of the model
+    based on the output of this evaluation system.
 
     ```python
     def __init__(self):
@@ -34,7 +32,6 @@ class BaseEvaluationModel(ABC):
 
     def __call__(self, input):
     # evaluate AI model.
-    Optimizer maximize/minimize the output of this function.
     ```
     """
 
@@ -42,4 +39,8 @@ class BaseEvaluationModel(ABC):
         ...
 
     def evaluate(self, model: BaseChainModel, **kwargs) -> Any:
+        """# evaluate AI model.
+
+        Optimizer maximize/minimize the output of this function.
+        """
         ...
