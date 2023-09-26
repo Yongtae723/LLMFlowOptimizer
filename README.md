@@ -26,11 +26,13 @@ This repository is strongly inspired by [lightning-hydra-template](https://githu
 
 # How to use
 
-please clone this repository and install requirements.
+Please click [<kbd>Use this template</kbd>](https://github.com/Yongtae723/LLMFlowOptimizer/generate) to use this repository as template.
+
+Clone your repository and install dependencies by following command.
 
 ```bash
-git clone git@github.com:Yongtae723/LLMFlowOptimizer.git
-cd llmflowoptimizer
+git clone git@github.com:<YOUR_GITHUB_ID>/<YOUR_REPOSITORY_NAME>.git
+cd <YOUR_REPOSITORY_NAME>
 ```
 
 ## setup
@@ -126,15 +128,35 @@ WIP
 WIP
 maybe use langflow?
 
+## Appendix
+
+### Auto code formatting
+
+If you want auto code formatting, you can install by
+
+```bash
+make fix-lint-install
+```
+
+Then code format will be fixed automatically when you commit.
+
+Also you can format code manually by
+
+```bash
+make fix-lint
+```
+
 # TODO
 
 - [ ] Hyperparameter search by optuna
 - [ ] manage experiment config (langsmith? WandB?)
-- [ ] actual experiment result
-- [ ] write blog
+- [ ] actual experiment result (ask specialist)
+  - [ ] write blog
 - [ ] add test function
+  - [ ] reduce data and execute e2e test
 - [ ] git action
-- [ ] code formatting
+  - \[ \]lint-check
+  - [ ] test
 - [ ] model can be build from GUI langchain builder
   - [ ] langflow
   - [ ] Flowise
