@@ -3,6 +3,15 @@
 ![Python 3.9](https://img.shields.io/badge/python-3.9-blue.svg)
 ![Python 3.10](https://img.shields.io/badge/python-3.10-blue.svg)
 
+<div align="center">
+A clean template to kickstart your LLM app project 🚀⚡🔥
+<br>
+Click on [<kbd>Use this template</kbd>](https://github.com/Yongtae723/LLMFlowOptimizer.git/generate) to initialize new repository.
+
+_Suggestions are always welcome!_
+
+</div>
+
 ## 📌  Introduction
 
 In recent years, various LLMs, embedding models, and LLM flows utilizing them have been proposed, making it difficult to manually verify which flow or component is optimal.
