@@ -18,6 +18,8 @@ This repository is strongly inspired by [lightning-hydra-template](https://githu
 
 - [LangChain](https://github.com/langchain-ai/langchain) : LangChain is a framework for developing applications powered by large language models. It can be divided conceptually into components (like llm component, embedding component), which are well-abstracted and easy to switch. This is the reason we can treat each component as hyperparameter.
 
+- [LangSmith](https://docs.smith.langchain.com/) : LangSmith is a web-based GUI tool that helps developers debug, test, evaluate, and monitor their LLM (Language Learning Model) applications. we can use LangSmith for evaluation and monitoring.
+
 - [Hydra](https://github.com/facebookresearch/hydra) : Hydra is an open-source Python framework that simplifies the development of research and other complex applications. It has the ability to dynamically create a hierarchical configuration system, which is its key feature
 
 - [Optuna](https://github.com/optuna/optuna) : Optuna is an open-source Python library for hyperparameter optimization. It offers a define-by-run API that allows users to construct search spaces, a mixture of efficient searching, and pruning algorithm to enhance the cost-effectiveness of optimization. Optuna also provides a web dashboard for visualization and evaluation of studies in real-time.
@@ -148,6 +150,7 @@ make fix-lint
 
 # TODO
 
+- \[ \]　.envの説明
 - [ ] Hyperparameter search by optuna
 - [ ] manage experiment config (langsmith? WandB?)
 - [ ] actual experiment result (ask specialist)
