@@ -1,0 +1,4 @@
+evaluation: true
+
+# pretty print config tree at the start of the run using Rich library
+print_config: false
