@@ -126,15 +126,35 @@ WIP
 WIP
 maybe use langflow?
 
+## Appendix
+
+### Auto code formatting
+
+If you want auto code formatting, you can install by
+
+```bash
+make fix-lint-install
+```
+
+Then code format will be fixed automatically when you commit.
+
+Also you can format code manually by
+
+```bash
+make fix-lint
+```
+
 # TODO
 
 - [ ] Hyperparameter search by optuna
 - [ ] manage experiment config (langsmith? WandB?)
-- [ ] actual experiment result
-- [ ] write blog
+- [ ] actual experiment result (ask specialist)
+  - [ ] write blog
 - [ ] add test function
+  - [ ] reduce data and execute e2e test
 - [ ] git action
-- [ ] code formatting
+  - \[ \]lint-check
+  - [ ] test
 - [ ] model can be build from GUI langchain builder
   - [ ] langflow
   - [ ] Flowise
