@@ -8,8 +8,10 @@ defaults:
   - model: default
   - evaluation: default
   - extras: default
+  - hydra: default
 
   - experiment: null
+  - hparams_search: null
 
 # task name, determines output directory path
 task_name: "train"

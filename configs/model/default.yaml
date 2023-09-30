@@ -4,7 +4,7 @@ defaults:
   - _self_
   - embedding: OpenAI
   - text_splitter: RecursiveCharacter
-  - llm: ChatOpenAI
+  - llm: OpenAI
 
 _target_: llmflowoptimizer.component.model.sample_qa.SampleQA # what we defined on llmflowoptimizer/models/sample_qa.py
 
