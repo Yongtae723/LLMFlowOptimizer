@@ -1,0 +1,5 @@
+- [ ] actual experiment result (ask specialist)
+  - [ ] write blog
+- [ ] model can be build from GUI langchain builder
+  - [ ] langflow
+  - [ ] Flowise
