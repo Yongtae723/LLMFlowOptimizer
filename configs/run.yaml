@@ -5,7 +5,7 @@
 defaults:
   - _self_
   - paths: default
-  - model: sample
+  - model: default
   - evaluation: default
   - extras: default
 

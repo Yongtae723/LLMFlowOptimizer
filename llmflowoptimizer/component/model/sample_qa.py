@@ -6,8 +6,10 @@ from langchain.schema.embeddings import Embeddings
 from langchain.schema.language_model import BaseLanguageModel
 from langchain.text_splitter import TextSplitter
 
+from llmflowoptimizer.component.base.base import BaseChainModel
 
-class SampleQA:
+
+class SampleQA(BaseChainModel):
     """Define the flow of the model to be adjusted."""
 
     def __init__(

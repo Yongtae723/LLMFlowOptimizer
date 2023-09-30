@@ -1,3 +1,2 @@
-_target_: llmflowoptimizer.models.evaluation.Evaluation
+_target_: llmflowoptimizer.component.evaluation.sample.Evaluation
 dataset_name: "NYC test"
-project_name: "NYC hyperparameter search test1"
