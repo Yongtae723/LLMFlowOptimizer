@@ -7,3 +7,6 @@ fix-lint-install:
 
 fix-lint:
 	poetry run pre-commit run -a
+
+test:
+	poetry run pytest tests/

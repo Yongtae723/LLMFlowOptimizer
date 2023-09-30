@@ -86,6 +86,10 @@ poetry run python llmflowoptimizer/run.py extras.evaluation=false extras.print_c
 poetry run python llmflowoptimizer/run.py
 ```
 
+## dataset
+
+you can update sample data by following [this notebook](notebooks/register_data_langsmith.ipynb)
+
 ## override
 
 You can modify components simply by adding commands, without needing to alter the code.
@@ -131,6 +135,15 @@ WIP
 maybe use langflow?
 
 ## Appendix
+
+### Test
+
+Before you make PR, you have to test your code by following command.
+In sample test, we only check model and evaluation class can be initialized.
+
+```bash
+make test
+```
 
 ### Auto code formatting
 
