@@ -1,4 +1,5 @@
-from typing import Any
+import datetime
+from typing import Any, Optional
 
 from langchain.smith import RunEvalConfig, run_on_dataset
 from langsmith import Client
@@ -31,10 +32,12 @@ class Evaluation(BaseEvaluationModel):
     def __init__(
         self,
         dataset_name: str,
+        project_name: Optional[str] = None,
         **kwargs: Any,
     ):
         self.client = Client()
         self.dataset_name = dataset_name
+        self.project_name = project_name
         self.additional_setting = kwargs
 
         # create evaluation chains
@@ -57,12 +60,14 @@ class Evaluation(BaseEvaluationModel):
         self,
         model: BaseChainModel,
     ):
-        # evaluation metrics is calculated by langsmith.
+        """Return of this method is used for hyperparameter optimization."""
+        project_name = self.project_name + datetime.datetime.now().strftime("_%Y-%m-%d_%H-%M-%S")
         result = run_on_dataset(
             client=self.client,
             dataset_name=self.dataset_name,
             llm_or_chain_factory=model,
             evaluation=self.evaluation_config,
+            project_name=project_name,
             input_mapper=lambda x: x,
             **self.additional_setting,
         )

@@ -42,7 +42,7 @@ hydra:
     # define hyperparameter search space
     params:
       model/text_splitter: choice(RecursiveCharacter, CharacterTextSplitter) # if you want to change component level
-      model.text_splitter.chunk_size: choice(500, 1000, 1500)
+      model.text_splitter.chunk_size: range(500, 1500, 100) # if you want to change specific hyperparameter
       model/llm: choice(OpenAI, GPTTurbo, GPT4)
     # you can also define custom search space for objective function (https://hydra.cc/docs/plugins/optuna_sweeper/#experimental--custom-search-space-optimization)
     # please see ./custom_search_space.py for example
