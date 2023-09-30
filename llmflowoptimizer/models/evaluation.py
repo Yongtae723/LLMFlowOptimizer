@@ -1,14 +1,15 @@
-import json
+from typing import Any
 
-from datasets import Dataset
-from ragas import evaluate
+from langchain.smith import RunEvalConfig, run_on_dataset
+from langsmith import Client
+from ragas.langchain.evalchain import RagasEvaluatorChain
 from ragas.metrics import (
     answer_relevancy,
     context_recall,
     context_relevancy,
     faithfulness,
 )
-from ragas.metrics.critique import harmfulness
+from scipy import stats
 
 from llmflowoptimizer.models.components.base import BaseChainModel, BaseEvaluationModel
 
@@ -29,44 +30,65 @@ class Evaluation(BaseEvaluationModel):
 
     def __init__(
         self,
-        eval_data_path: str,
-        target_metric: str = "ragas_score",
+        dataset_name: str,
+        **kwargs: Any,
     ):
-        with open(eval_data_path) as f:
-            self.eval_data = json.load(f)
-        self.target_metric = target_metric
+        self.client = Client()
+        self.dataset_name = dataset_name
+        self.additional_setting = kwargs
+
+        # create evaluation chains
+        faithfulness_chain = RagasEvaluatorChain(metric=faithfulness)
+        answer_rel_chain = RagasEvaluatorChain(metric=answer_relevancy)
+        context_rel_chain = RagasEvaluatorChain(metric=context_relevancy)
+        context_recall_chain = RagasEvaluatorChain(metric=context_recall)
+        self.evaluation_config = RunEvalConfig(
+            evaluators=["qa"],
+            custom_evaluators=[
+                faithfulness_chain,
+                answer_rel_chain,
+                context_rel_chain,
+                context_recall_chain,
+            ],
+            prediction_key="result",
+        )
 
     def evaluate(
         self,
         model: BaseChainModel,
     ):
-        # execute model
-        result_dict = {
-            "question": [],
-            "answer": [],
-            "ground_truths": [],
-            "contexts": [],
-        }
-        for data in self.eval_data:
-            answer = model(data["question"])
-            result_dict["question"].append(data["question"])
-            result_dict["answer"].append(answer["answer"])
-            result_dict["ground_truths"].append([data["ground_truth"]])
-            contexts = [
-                source_document.page_content for source_document in answer["source_documents"]
-            ]
-            result_dict["contexts"].append(contexts)
-        results = Dataset.from_dict(result_dict)
-
-        # evaluate model
-        result = evaluate(
-            dataset=results,
-            metrics=[
-                context_relevancy,
-                faithfulness,
-                answer_relevancy,
-                context_recall,
-                harmfulness,
-            ],
+        # evaluation metrics is calculated by langsmith.
+        result = run_on_dataset(
+            client=self.client,
+            dataset_name=self.dataset_name,
+            llm_or_chain_factory=model,
+            evaluation=self.evaluation_config,
+            input_mapper=lambda x: x,
+            **self.additional_setting,
         )
-        return result[self.target_metric]
+        result = self.calculate_score_from_langsmith(result)
+        return result["final_score"]
+
+    def calculate_score_from_langsmith(self, result):
+        """In this sample, we calculate mean score of correctness and ragas_score.
+
+        ragas_score is calculated by harmonic mean of faithfulness, answer_relevancy,
+        context_relevancy, context_recall.
+        https://github.com/explodinggradients/ragas
+        """
+        correctness = 0
+        ragas_score = 0
+
+        for _, val in result["results"].items():
+            scores_for_ragas_score = []
+            for feedback in val["feedback"]:
+                if feedback.key == "correctness":
+                    correctness += feedback.score
+                else:
+                    scores_for_ragas_score.append(feedback.score)
+
+            ragas_score += stats.hmean(scores_for_ragas_score)
+        correctness = correctness / len(result["results"].keys())
+        ragas_score = ragas_score / len(result["results"].keys())
+        final_score = sum([correctness, ragas_score]) / len([correctness, ragas_score])
+        return {"final_score": final_score, "ragas_score": ragas_score}
