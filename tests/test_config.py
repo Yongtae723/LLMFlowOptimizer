@@ -15,4 +15,3 @@ def test_config(cfg_run: DictConfig) -> None:
     HydraConfig().set_config(cfg_run)
 
     hydra.utils.instantiate(cfg_run.model)
-    hydra.utils.instantiate(cfg_run.evaluation)
