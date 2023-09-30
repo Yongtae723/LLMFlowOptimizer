@@ -20,6 +20,7 @@ def main(cfg: DictConfig) -> Optional[float]:
     """This is the main entry point of the tune script."""
     log.info(f"Instantiating model <{cfg.model._target_}>")
     model: BaseChainModel = hydra.utils.instantiate(cfg.model)
+    model = model.get_chain()
 
     if cfg.extras.print_config:
         print_config_tree(cfg)

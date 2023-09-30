@@ -1,5 +1,5 @@
-from typing import Any
-
+from langchain.chains import RetrievalQA
+from langchain.chains.base import Chain
 from langchain.document_loaders import TextLoader
 from langchain.indexes.vectorstore import VectorstoreIndexCreator
 from langchain.schema.embeddings import Embeddings
@@ -8,23 +8,14 @@ from langchain.text_splitter import TextSplitter
 
 
 class SampleQA:
-    """Define the flow of the model to be adjusted.
-
-    ```python
-    def __init__(self):
-    # Define the flow. component defined here can be optimized by hyperparameter search.
-
-    def __call__(self, input):
-    # Define when this model is called.
-    ```
-    """
+    """Define the flow of the model to be adjusted."""
 
     def __init__(
         self,
         data_path: str,
         embedding: Embeddings,
         text_splitter: TextSplitter,
-        llm_for_answer: BaseLanguageModel,
+        llm: BaseLanguageModel,
     ) -> None:
         """Input the elements necessary for LLM flow The arguments here will be used as a
         hyperparameters and optimized.
@@ -38,9 +29,12 @@ class SampleQA:
             embedding=embedding, text_splitter=text_splitter
         ).from_loaders([text_loader])
 
-        self.llm_for_answer = llm_for_answer
-
-    def __call__(self, input: str) -> Any:
-        return self.index.query_with_sources(
-            input, llm=self.llm_for_answer, return_source_documents=True
+        self.chain = RetrievalQA.from_chain_type(
+            llm,
+            retriever=self.index.vectorstore.as_retriever(),
+            return_source_documents=True,
         )
+
+    def get_chain(self) -> Chain:
+        """Get langchain chain."""
+        return self.chain

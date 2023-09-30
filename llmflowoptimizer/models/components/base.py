@@ -1,6 +1,8 @@
 from abc import ABC, abstractmethod
 from typing import Any
 
+from langchain.chains.base import Chain
+
 
 class BaseChainModel(ABC):
     """Define the flow of the model to be adjusted.
@@ -17,7 +19,12 @@ class BaseChainModel(ABC):
     def __init__(self, **kwargs) -> None:
         ...
 
-    def __call__(self, input: str) -> Any:
+    def __call__(self, input: str) -> str:
+        """You can define when this class is called."""
+        ...
+
+    @abstractmethod
+    def get_chain(self, input: str) -> Chain:
         """You can define when this class is called."""
         ...
 
