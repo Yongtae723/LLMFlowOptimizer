@@ -1,12 +1,11 @@
-"""This file prepares config fixtures for other tests."""
-
-from pathlib import Path
+import os
 
 import pytest
 import rootutils
 from hydra import compose, initialize
-from hydra.core.global_hydra import GlobalHydra
 from omegaconf import DictConfig, open_dict
+
+os.environ["OPENAI_API_KEY"] = "sk-xxx"
 
 
 @pytest.fixture(scope="package")
