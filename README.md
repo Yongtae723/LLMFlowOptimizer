@@ -21,23 +21,19 @@ Any feedback, bug reports, and suggestions are appreciated!
 
 ## 🔧  Main Technologies
 
-- [LangChain](https://github.com/langchain-ai/langchain) : LangChain is a framework for developing applications powered by large language models. It can be divided conceptually into components (like llm component, embedding component), which are well-abstracted and easy to switch. This is the reason we can treat each component as hyperparameter.
-
-- [LangSmith](https://docs.smith.langchain.com/) : LangSmith is a web-based GUI tool that helps developers debug, test, evaluate, and monitor their LLM (Language Learning Model) applications. we can use LangSmith for evaluation and monitoring.
-
 - [Hydra](https://github.com/facebookresearch/hydra) : Hydra is an open-source Python framework that simplifies the development of research and other complex applications. It has the ability to dynamically create a hierarchical configuration system, which is its key feature
 
 - [Optuna](https://github.com/optuna/optuna) : Optuna is an open-source Python library for hyperparameter optimization. It offers a define-by-run API that allows users to construct search spaces, a mixture of efficient searching, and pruning algorithm to enhance the cost-effectiveness of optimization. Optuna also provides a web dashboard for visualization and evaluation of studies in real-time.
 
-- [ragas](https://github.com/explodinggradients/ragas) : Ragas is an evaluation framework for Retrieval Augmented Generation (RAG) pipelines that provides tools based on the latest research for evaluating LLM-generated text to give insights about the RAG pipeline.
-
 # 🚀 How to use
 
-I will explain how to use this repository by using question answering as an example. In example, we use
+I will explain how to use this repository by using question answering as an example. In this example, we will use following technologies.
 
-- **LangChain**  : for model
-- **Ragas** : for evaluation
-- **LangSmith** : for evaluation and monitoring
+- [LangChain for model](https://github.com/langchain-ai/langchain) : LangChain is a framework for developing applications powered by large language models. It can be divided conceptually into components (like llm component, embedding component), which are well-abstracted and easy to switch. This is the reason we can treat each component as hyperparameter.
+
+- [ragas for scoring](https://github.com/explodinggradients/ragas) : Ragas is an evaluation framework for Retrieval Augmented Generation (RAG) pipelines that provides tools based on the latest research for evaluating LLM-generated text to give insights about the RAG pipeline.
+
+- [LangSmith for scoring and monitoring](https://docs.smith.langchain.com/) : LangSmith is a web-based GUI tool that helps developers debug, test, evaluate, and monitor their LLM (Language Learning Model) applications. we can use LangSmith for evaluation and monitoring.
 
 ## Step 0 : Environment Setup
 
