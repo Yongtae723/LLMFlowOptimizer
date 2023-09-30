@@ -136,6 +136,15 @@ maybe use langflow?
 
 ## Appendix
 
+### Test
+
+Before you make PR, you have to test your code by following command.
+In sample test, we only check model and evaluation class can be initialized.
+
+```bash
+make test
+```
+
 ### Auto code formatting
 
 If you want auto code formatting, you can install by
