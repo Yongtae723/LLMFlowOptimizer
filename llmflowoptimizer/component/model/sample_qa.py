@@ -32,7 +32,7 @@ class SampleQA(BaseChainModel):
     def get_chain(self) -> Chain:
         """Get langchain chain."""
 
-        # embedding should not be on __init__ for testing
+        # embedding should not be on __init__ for testing, because it call embedding function and it might need api-key.
         self.index = VectorstoreIndexCreator(
             embedding=self.embedding, text_splitter=self.text_splitter
         ).from_loaders([self.text_loader])
