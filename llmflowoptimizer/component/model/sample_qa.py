@@ -26,17 +26,20 @@ class SampleQA(BaseChainModel):
         """
         self.embedding = embedding
         self.text_splitter = text_splitter
-        text_loader = TextLoader(data_path)
-        self.index = VectorstoreIndexCreator(
-            embedding=embedding, text_splitter=text_splitter
-        ).from_loaders([text_loader])
-
-        self.chain = RetrievalQA.from_chain_type(
-            llm,
-            retriever=self.index.vectorstore.as_retriever(),
-            return_source_documents=True,
-        )
+        self.text_loader = TextLoader(data_path)
+        self.llm = llm
 
     def get_chain(self) -> Chain:
         """Get langchain chain."""
+
+        # embedding should not be on __init__ for testing
+        self.index = VectorstoreIndexCreator(
+            embedding=self.embedding, text_splitter=self.text_splitter
+        ).from_loaders([self.text_loader])
+
+        self.chain = RetrievalQA.from_chain_type(
+            self.llm,
+            retriever=self.index.vectorstore.as_retriever(),
+            return_source_documents=True,
+        )
         return self.chain
