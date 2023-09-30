@@ -6,7 +6,7 @@ import hydra
 import rootutils
 from omegaconf import DictConfig
 
-from llmflowoptimizer.models.components.base import BaseChainModel, BaseEvaluationModel
+from llmflowoptimizer.component.base.base import BaseChainModel, BaseEvaluationModel
 from llmflowoptimizer.utils.utils import print_config_tree
 
 log = logging.getLogger(__name__)

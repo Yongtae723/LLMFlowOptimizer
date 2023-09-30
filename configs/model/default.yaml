@@ -6,6 +6,6 @@ defaults:
   - text_splitter: RecursiveCharacter
   - llm: ChatOpenAI
 
-_target_: llmflowoptimizer.models.sample_qa.SampleQA # what we defined on llmflowoptimizer/models/sample_qa.py
+_target_: llmflowoptimizer.component.model.sample_qa.SampleQA # what we defined on llmflowoptimizer/models/sample_qa.py
 
 data_path: ${paths.reference_data_dir}/nyc_wikipedia.txt

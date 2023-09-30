@@ -11,7 +11,7 @@ from ragas.metrics import (
 )
 from scipy import stats
 
-from llmflowoptimizer.models.components.base import BaseChainModel, BaseEvaluationModel
+from llmflowoptimizer.component.base.base import BaseChainModel, BaseEvaluationModel
 
 
 class Evaluation(BaseEvaluationModel):
