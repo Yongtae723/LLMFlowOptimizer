@@ -26,10 +26,6 @@ class SampleQA:
         self.text_splitter = text_splitter
         self.text_loader = TextLoader(data_path)
         self.llm = llm
-
-    def get_chain(self) -> Chain:
-        """Get langchain chain."""
-
         # embedding should not be on __init__ for testing, because it call embedding function and it might need api-key.
         self.index = VectorstoreIndexCreator(
             embedding=self.embedding, text_splitter=self.text_splitter
@@ -40,4 +36,11 @@ class SampleQA:
             retriever=self.index.vectorstore.as_retriever(),
             return_source_documents=True,
         )
+
+    def __call__(self, question: str) -> str:
+        """Answer the question."""
+        return self.chain(question)
+
+    def get_chain(self) -> Chain:
+        """Get langchain chain."""
         return self.chain

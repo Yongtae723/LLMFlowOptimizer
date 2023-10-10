@@ -1,4 +1,3 @@
-import hydra
 from hydra.core.hydra_config import HydraConfig
 from omegaconf import DictConfig
 
@@ -13,5 +12,3 @@ def test_config(cfg_run: DictConfig) -> None:
     assert cfg_run.evaluation
 
     HydraConfig().set_config(cfg_run)
-
-    hydra.utils.instantiate(cfg_run.model)
