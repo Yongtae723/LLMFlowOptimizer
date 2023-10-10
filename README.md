@@ -1,7 +1,7 @@
 # LLMFlowOptimizer
 
 [![python](https://img.shields.io/badge/-Python_3.9_%7C_3.10-blue?logo=python&logoColor=white)](https://github.com/pre-commit/pre-commit)
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Yongtae723/LLMFlowOptimizer/blob/main/notebooks/tutorial_notebook.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Yongtae723/LLMFlowOptimizer/blob/main/notebooks/LLMFlowOptimizer_tutorial_notebook.ipynb)
 [![hydra](https://img.shields.io/badge/Config-Hydra_1.3-89b8cd)](https://hydra.cc/)
 [![Optuna](https://img.shields.io/badge/Optimize-Optuna-blue)](https://github.com/optuna/optuna)
 [![black](https://img.shields.io/badge/Code%20Style-Black-black.svg?labelColor=gray)](https://black.readthedocs.io/en/stable/)
@@ -34,7 +34,7 @@ I will explain how to use this repository by using question answering as an exam
 
 - [ragas for scoring](https://github.com/explodinggradients/ragas) : Ragas is an evaluation framework for Retrieval Augmented Generation (RAG) pipelines that provides tools based on the latest research for evaluating LLM-generated text to give insights about the RAG pipeline.
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Yongtae723/LLMFlowOptimizer/blob/main/notebooks/tutorial_notebook.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Yongtae723/LLMFlowOptimizer/blob/main/notebooks/LLMFlowOptimizer_tutorial_notebook.ipynb)
 
 You can experience quick start by above colab notebook.
 
