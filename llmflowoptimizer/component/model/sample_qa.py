@@ -26,7 +26,6 @@ class SampleQA:
         self.text_splitter = text_splitter
         self.text_loader = TextLoader(data_path)
         self.llm = llm
-        # embedding should not be on __init__ for testing, because it call embedding function and it might need api-key.
         self.index = VectorstoreIndexCreator(
             embedding=self.embedding, text_splitter=self.text_splitter
         ).from_loaders([self.text_loader])
