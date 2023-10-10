@@ -33,8 +33,6 @@ I will explain how to use this repository by using question answering as an exam
 
 - [ragas for scoring](https://github.com/explodinggradients/ragas) : Ragas is an evaluation framework for Retrieval Augmented Generation (RAG) pipelines that provides tools based on the latest research for evaluating LLM-generated text to give insights about the RAG pipeline.
 
-- [LangSmith for scoring and monitoring](https://docs.smith.langchain.com/) : LangSmith is a web-based GUI tool that helps developers debug, test, evaluate, and monitor their LLM (Language Learning Model) applications. we can use LangSmith for evaluation and monitoring.
-
 ## Step 0 : Environment Setup
 
 Please click [<kbd>Use this template</kbd>](https://github.com/Yongtae723/LLMFlowOptimizer/generate) to use this repository as template.
@@ -83,10 +81,6 @@ Please click [<kbd>Use this template</kbd>](https://github.com/Yongtae723/LLMFlo
 
 ## Step 2 : Prepare dataset and define evaluation system
 
-- register data on LangSmith (If you want to use LangSmith)
-
-  In our example, we use [LangSmith](https://docs.smith.langchain.com/) for evaluation and monitoring. You can register data on LangSmith by following [example notebook](notebooks/register_data_langsmith.ipynb)
-
 - Define evaluation system like [llmflowoptimizer/model/evaluation.py](llmflowoptimizer/model/evaluation.py), and set argument on [configs/evaluation](configs/model).
 
   Optuna will optimize component based on the return value of this evaluation system.
@@ -120,16 +114,6 @@ Please click [<kbd>Use this template</kbd>](https://github.com/Yongtae723/LLMFlo
   ```
 
 Then you can see the best parameter on `logs/{task_name}/multirruns/{timestamp}/optimization_results.yaml`.
-
-And you can see the detail of each trial on LangSmith like below.
-
-![langsmith_each_trial](documents/image/each_trial.png)
-
-This figure shows the result of each runs.
-
-![langsmith_each_input_output](documents/image/each_input_output.png)
-
-This figure shows the input and output of each questions.
 
 # 📚 Appendix
 
