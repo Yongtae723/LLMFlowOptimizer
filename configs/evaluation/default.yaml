@@ -1,3 +1,2 @@
 _target_: llmflowoptimizer.component.evaluation.sample.Evaluation
-dataset_name: "NYC test"
-project_name: ${task_name}
+eval_dataset_path: ${paths.evaluation_data_dir}/NY_eval_data.json
