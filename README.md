@@ -12,8 +12,8 @@ In recent years, various LLMs, embedding models, and LLM flows utilizing them ha
 
 This repository aims to treat LLMs and Embeddings as a hyperparameter, with the goal of automatically searching for the optimal hyperparameter of the LLM flow.
 
-**Below image is the concept image of this repository (image is took from [Flowise](https://github.com/FlowiseAI/Flowise) and slightly modified). Component of LangChain like a LLM or Embedding can be treated as hyperparameter. You will find component from various candidate that can optimize score.**
 ![concept_image](documents/image/concept.png)
+**This image is the concept image of this repository (image is took from [Flowise](https://github.com/FlowiseAI/Flowise) and slightly modified). Component of LangChain like a LLM or Embedding can be treated as hyperparameter. You will find component from various candidate that can optimize score.**
 
 This repository is strongly inspired by [lightning-hydra-template](https://github.com/ashleve/lightning-hydra-template)🎉
 

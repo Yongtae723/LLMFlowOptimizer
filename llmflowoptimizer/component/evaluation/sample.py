@@ -12,10 +12,8 @@ from ragas.metrics import (
 )
 from scipy import stats
 
-from llmflowoptimizer.component.base.base import BaseChainModel, BaseEvaluationModel
 
-
-class Evaluation(BaseEvaluationModel):
+class Evaluation:
     """Define the evaluation system. llmflowoptimizer optimizes the hyperparameters of the model
     based on the output of this evaluation system.
 
@@ -58,14 +56,14 @@ class Evaluation(BaseEvaluationModel):
 
     def evaluate(
         self,
-        model: BaseChainModel,
+        model: Any,  # this model should be defined in llmflowoptimizer/component/model/sample_qa.py
     ):
         """Return of this method is used for hyperparameter optimization."""
         project_name = self.project_name + datetime.datetime.now().strftime("_%Y-%m-%d_%H-%M-%S")
         result = run_on_dataset(
             client=self.client,
             dataset_name=self.dataset_name,
-            llm_or_chain_factory=model,
+            llm_or_chain_factory=model.get_chain(),
             evaluation=self.evaluation_config,
             project_name=project_name,
             input_mapper=lambda x: x,
