@@ -14,4 +14,4 @@ defaults:
   - hparams_search: null
 
 # task name, determines output directory path
-task_name: "train"
+task_name: "initial_task"
